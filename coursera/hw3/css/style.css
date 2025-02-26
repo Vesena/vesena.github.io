@@ -42,7 +42,7 @@ img {
 
 .skip-link {
     opacity: 0;
-    background-color: #03138D;
+    background-color: #D1886D;
     position: absolute;
     top: 8px;
     left: 8px;
@@ -50,13 +50,13 @@ img {
     color: #fff;
     padding: 64px;
     border-radius: 8px;
-    box-shadow: 4px 4px 16px 2px #03138D;
+    box-shadow: 4px 4px 16px 2px #D1886D;
 }
 
 .skip-link:focus-within {
     opacity: 1;
     z-index: 1;
-    outline: 1px solid #03138D;
+    outline: 1px solid #D1886D;
 }
 
 nav {
@@ -157,7 +157,7 @@ p:first-child {
 
 .grid figure {
     margin: 0;
-    background-color: #7c7e89;
+    background-color: #9c9c9c;
     border-radius: 24px;
     padding: 8px;
     height: 100%;
@@ -183,7 +183,7 @@ p:first-child {
     font-size: 16px;
     margin-top: 8px;
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 
 p + p {

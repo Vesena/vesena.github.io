@@ -9,6 +9,7 @@ html {
     font-style: normal;
     color: #00204d;
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -20,6 +21,7 @@ a {
     font: inherit;
     text-decoration: none;
     position: relative;
+    z-index: 0;
 }
 
 a:before {
@@ -51,6 +53,18 @@ img {
     max-width: 100%;
 }
 
+h2, h3, h4 {
+    clear: both;
+    margin: 0;
+}
+
+figcaption {
+    font-size: 16px;
+    margin-top: 8px;
+    text-align: center;
+    color: #00204d;
+}
+
 .skip-link {
     color: #fff;
     position: absolute;
@@ -66,32 +80,28 @@ img {
     right: unset;
     left: 32px;
     top: 32px;
-    z-index: 1;
+    z-index: 2;
 }
 
 nav {
-    display: flex;
-    flex-wrap: wrap;
     padding: 32px;
     background-color: #022452;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 nav ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
+    justify-content: center;
     gap: 8px;
-    flex-grow: 1;
 }
 
 nav ul li a {
     color: #D1886D;
     padding: 8px;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 500;
 }
 
@@ -113,7 +123,7 @@ header {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 40px;
     margin: 0;
     align-self: flex-end;
 }
@@ -132,8 +142,6 @@ h1 {
 main {
     padding: 32px;
     min-height: 100vh;
-    max-width: 1280px;
-    margin: 0 auto;
 }
 
 main a {
@@ -144,13 +152,13 @@ main a:before {
     background-color: #4D0800;
 }
 
-p:first-child {
+.large-text {
     font-size: 24px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(302px, 32%));
+    grid-template-columns: repeat(auto-fill, min(302px));
     gap: 8px;
     margin: 24px 0;
     justify-content: center;
@@ -180,31 +188,44 @@ p:first-child {
    transform: rotateY(180deg);
 }
 
-.grid figure figcaption {
-    font-size: 16px;
-    margin-top: 8px;
-    text-align: center;
-    color: #00204d;
-}
-
-p + p {
-    margin-top: 16px;
-}
-
 .flex {
-   display: flex;
+    display: flex;
     gap: 32px;
+}
+
+@media (max-width:767px) {
+    .page-navigation {
+        display: none;
+    }
 }
 
 .page-navigation {
     position: sticky;
     top: 140px;
     align-self: flex-start;
-    flex: 0 1 200px;
+    flex: 0 1 226px;
+    width: max-content;
+}
+
+.page-navigation details {
+    display: grid;
+}
+
+.page-navigation details > a, .page-navigation details details {
+    margin-left: 24px;
+    margin-top: 8px;
 }
 
 .content {
     flex: 1;
+}
+
+dl dt {
+    font-weight: 500;
+    color: #11004D;
+}
+dd + dt {
+    margin-top: 4px;
 }
 
 .content-image {
@@ -215,32 +236,104 @@ p + p {
     width: 236px;
 }
 
-.content-image_left {
-    float: left;
-    margin: 16px 16px 16px 0;
+.content-image img {
+    border-radius: 24px 24px 0 0;
+    height: 100%;
+    margin: 0 auto;
 }
 
-.content-image_right {
+.content-image:nth-of-type(odd) {
     float: right;
     margin: 16px 0 16px 16px;
 }
 
-.content-image img {
-    border-radius: 24px 24px 0 0;
-    height: 100%;
+.content-image:nth-of-type(even) {
+    float: left;
+    margin: 16px 16px 16px 0;
 }
 
-.content-image figcaption {
-    font-size: 16px;
+.group-images {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: 8px;
+    background-color: #D4E6FF;
+    border-radius: 24px 24px 0 0;
+    padding: 8px;
+    float: right;
+    margin: 16px 0 16px 16px;
+}
+
+.group-images figure {
+    margin: 0;
+}
+.group-images figure img {
+    max-width: unset;
+    border-radius: 24px 24px 0 0;
+}
+
+h2 {
+    border-bottom: 1px solid #00204d;
+    padding-bottom: 4px;
+}
+
+.mt-8 {
     margin-top: 8px;
-    text-align: center;
-    color: #00204d;
+}
+
+.mt-12 {
+    margin-top: 12px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.mt-28 {
+    margin-top: 28px;
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+.gallery {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fill, 185px);
+    justify-content: space-between;
+}
+
+.gallerybox figure {
+    height: 100%;
+    margin: 0;
+    border: 1px solid #00204d;
+    display: grid;
+    justify-items: center;
+    padding: 15px;
+}
+
+.list {
+    list-style: square inside;
+    margin-left: 8px;
+}
+
+.list li + .list li {
+    margin-top: 8px;
 }
 
 footer {
     background-color: #022452;
     padding: 64px;
     color: #fff;
+    font-size: 16px;
 }
 
 footer a {
